@@ -15,9 +15,12 @@
 import { ref } from "vue";
 const title = ref("首页");
 
+// #ifdef APP-PLUS
+const testModule = uni.requireNativePlugin('TestModule');
+// #endif
+
 function testAsyncMethod() {
   // #ifdef APP-PLUS
-  const testModule = uni.requireNativePlugin('TestModule');
   testModule.testAsyncFunc({
     'name': 'unimp',
     'age': 1
@@ -33,7 +36,6 @@ function testAsyncMethod() {
 
 function testSyncMethod() {
   // #ifdef APP-PLUS
-  const testModule = uni.requireNativePlugin('TestModule');
   var responses = testModule.testSyncFunc({
     'name': 'unimp',
     'age': 1
@@ -47,7 +49,6 @@ function testSyncMethod() {
 
 function gotoNativePage() {
   // #ifdef APP-PLUS
-  const testModule = uni.requireNativePlugin('TestModule');
   testModule.gotoNativePage();
   // #endif
 }
